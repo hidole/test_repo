@@ -9,22 +9,32 @@ import subprocess
 srcs= "/home/hoon/coding/"
 src="/home/hoon/coding_backup2/"
 dest = "/home/hoon/coding_backup3/"
+
+Msrcs= "/Users/admin/python/"
+Msrc=""
+Mdest = "/Users/admin/python_Backup1/"
+
 srclist=[]
 
-
+srclist.append(Msrcs)
 
 def run(source):
     #print("handling ()".format(task))
-    subprocess.run(["rsync","-avh",source,dest])
+    subprocess.run(["rsync","-arq",source,Mdest])
+
+def runs():
+    #print("handling ()".format(task))
+    subprocess.run(["rsync","-avh",Msrcs,Mdest])
 
 
-for root,dirs,files in os.walk(src, topdown=True):
-    for name in files:
-        #print(os.path.join(root,name))
-        srclist.append(os.path.join(root,name))
-    for name in dirs:
-        #print(os.path.join(root,name))
-        srclist.append(os.path.join(root,name))
+
+#for root,dirs,files in os.walk(Msrcs, topdown=True):
+    #for name in files:
+    #    print(name)
+    #    srclist.append(os.path.join(root,name))
+    #for name2 in dirs:
+    #    print(os.path.join(root,name2))
+    #    srclist.append(os.path.join(root,name2))
 
 print(srclist)
 
